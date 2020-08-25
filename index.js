@@ -1,11 +1,12 @@
 const express =  require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
+app.use(cors());
 //settings
 app.set('port',process.env.PORT || 3000); //si existe puerto en el host por defecto lo usa, si no usa3000
 
 //midle
-app.use(bodyParser.urlencoded({extended:false})) //permite datps de formularios
 app.use(bodyParser.json());// permite json
 
 app.post('/api/v1/send-email', (req, res) => {
